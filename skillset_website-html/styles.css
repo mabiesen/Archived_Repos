@@ -1,0 +1,204 @@
+body {
+  font-family: Helvetica;
+  padding: 2em;
+  background-color: whitesmoke;
+}
+
+h2{
+	font-size: 1.75em;
+}
+
+h1 {
+	font-size: 4.0em;
+}
+
+.skillset {
+  display: flex;
+  justify-content: space-between;
+  /*flex-wrap: wrap;*/
+}
+
+.skill-rb {
+  background-color: #E55126;
+}
+
+.skill-js-html-css {
+  background-color: #E5A227;
+}
+
+.skill-py {
+  background-color: #0C73B8;
+}
+
+.skill-rpi {
+  background-color: #0C73B8;
+}
+
+.skill-vba {
+    background-color: #E5A227;
+}
+
+.skill-rb,
+.skill-py,
+.skill-rpi,
+.skill-vba,
+.skill-js-html-css {
+  width: 35%;
+  padding: 1em 3em 2em 2em;
+  margin: 0.5em;
+  color: whitesmoke;
+  border-radius: 0.5em;
+  text-align: center;
+}
+
+.projects-button,
+.learning-button {
+  border-radius: 0.5em;
+  text-align: center;
+  padding: 0.50em 0.5em;
+  background-color: whitesmoke;
+  opacity: 0.9;
+  width: 7em;
+  color: black;
+  margin: auto;
+}
+
+.moveright,
+.moveleft {
+	padding: 0.2em 0.2em 0.2em 0.2em;
+}
+
+
+ul {
+  list-style-type: circle;
+  padding: 0;
+}
+
+.projects,
+.learning {
+  text-align: left;
+  margin: 1em 0;
+  display: none;
+}
+
+.active {
+  background-color: #333333;
+  color: whitesmoke;
+}
+
+/*below you will find the CSS required for the timeline */
+.midhtml, .midbody {
+  color: #681;
+	background: #eee;
+	min-width: 700px;
+}
+
+/* ---- Timeline ---- */
+
+ol {
+	position: relative;
+	display: block;
+	/*margin: 100px;*/
+	margin-top: 125px; /*These margins dictate line position/length on screen*/
+	margin-left: 20px;
+	margin-right: 20px;
+	height: 4px;
+	background: #9b2; /*the line itself*/
+}
+ol::before,
+ol::after {
+	content: "";
+	position: absolute;
+	top: -8px;
+	display: block;
+	width: 0;
+	height: 0;
+  border-radius: 10px;
+	border: 10px solid #9b2; /*The beginning circle*/
+}
+ol::before {
+	left: -5px;
+}
+ol::after {
+	right: -10px;
+	border: 10px solid transparent;
+	border-right: 0;
+	border-left: 20px solid #9b2;/*The arrow*/
+  border-radius: 3px;
+}
+
+/* ---- Timeline elements ---- */
+
+ol li {
+	position: relative;
+	/*top: -77px;*/
+	top: -65px;
+	display: inline-block;
+	float: left;
+	/*width: 150px;*/
+	width: 120px;
+	transform: rotate(-45deg);
+	font: bold 14px arial;
+}
+ol li::before {
+	content: "";
+	position: absolute;
+	top: 3px;
+	left: -29px;
+	display: block;
+	width: 6px;
+	height: 6px;
+	border: 4px solid #9b2; /*the color of the circle connected to text*/
+	border-radius: 10px;
+	background: #eee;
+}
+
+/* ---- Details ---- */
+
+.details {
+	display: none;
+
+	position: absolute;
+	left: -85px;
+	top: 60px;
+	padding: 15px;
+	border-radius: 3px;
+	border-right: 2px solid rgba(0,0,0,.1);
+	border-bottom: 2px solid rgba(0,0,0,.1);
+	transform: rotate(45deg);
+	font: 12px arial;
+	background: #fff;
+}
+.details::before {
+	content: "";
+	position: absolute;
+	left: 10px;
+	top: -9px;
+	display: block;
+	width: 0;
+	height: 0;
+	border: 10px solid transparent;
+	border-bottom-color: #fff;
+	border-top: 0;
+}
+
+/* ---- Hover effects ---- */
+
+ol li:hover {
+	cursor: pointer;
+  color: #28e;
+}
+ol li:hover::before {
+	top: 1px;
+	left: -31px;
+	width: 8px;
+	height: 8px;
+	border-width: 5px;
+	border-color: #28e;
+}
+ol li:hover .details {
+	position: relative;
+	right:20px;
+	display: block;
+  color: #444;
+}
