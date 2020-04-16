@@ -5,18 +5,20 @@ import smtplib
 #find price of silver
 res = requests.get('http://www.kitco.com/charts/livesilver.html')
 res.raise_for_status()
-exampleSoup = bs4.BeautifulSoup(res.text)
+exampleSoup = bs4.BeautifulSoup(res.text, features="html.parser")
 elems = exampleSoup.select('#sp-bid')
-priceslvr = elems[0].getText()
-print(priceslvr)
+price_of_silver = elems[0].getText()
+silver_price_string = "The price of silver is: " + price_of_silver
+print(silver_price_string)
 
 #find price of gold
 res2 = requests.get('http://www.kitco.com/charts/livegold.html')
 res2.raise_for_status()
-exampleSoup = bs4.BeautifulSoup(res2.text)
+exampleSoup = bs4.BeautifulSoup(res2.text, features="html.parser")
 elems = exampleSoup.select('#sp-bid')
-pricegld = elems[0].getText()
-print(pricegld)
+price_of_gold = elems[0].getText()
+gold_price_string = "The price of gold is: " + price_of_gold
+print(gold_price_string)
 
 #send email
 smtpObj = smtplib.SMTP('smtp.gmail.com', 587)
